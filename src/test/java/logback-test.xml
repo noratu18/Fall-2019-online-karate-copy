@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>target/karate.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+<!-->                               "DEBUG"  -->
+    <logger name="com.intuit" level="INFO"/>
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>
+
+<!--This is optional, and Karate will work without the logging config in place, but the default console logging may be too verbose for your needs.
+Karate uses LOGBack which looks for a file called logback-test.xml on the 'classpath'.
+
+Here is a sample logback-test.xml for you to get started.
+ This coming from         https://github.com/intuit/karate
+
+ -->
